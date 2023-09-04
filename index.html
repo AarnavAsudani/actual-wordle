@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wordle Game</title>
+    <title>Me-dle</title>
 </head>
 <body>
     <h1>Wordle Game</h1>
-    <p>Guess the 5-letter word:</p>
-    <div id="attempts">Attempts left: 6</div>
+    <p>Guess this word, ok?</p>
+    <div id="attempts">Attempts left: 10</div>
     <div id="word"></div>
     <input type="text" id="guessInput" maxlength="5">
     <button onclick="checkGuess()">Submit</button>
@@ -18,8 +18,14 @@
         // List of words (you can replace this with a daily word update logic)
         const wordList = [
             "apple",
-            "banana",
-            "cherry",
+            "awake",
+            "after",
+            "bring",
+            "black",
+            "bliss",
+            "cross",
+            "crane",
+            "cleat"
             // Add more words here
         ];
 
@@ -27,7 +33,7 @@
         const randomIndex = Math.floor(Math.random() * wordList.length);
         const targetWord = wordList[randomIndex];
 
-        let attempts = 6;
+        let attempts = 10;
         let guessedWord = "";
 
         // Display the initial dashes for the word
@@ -57,12 +63,12 @@
             }
 
             if (feedback === targetWord) {
-                document.getElementById("feedback").textContent = "Congratulations! You guessed the word: " + targetWord;
-                document.getElementById("attempts").textContent = "You won!";
+                document.getElementById("feedback").textContent = "Oh, you guessed the word: " + targetWord;
+                document.getElementById("attempts").textContent = "You won. Yay.";
                 document.getElementById("guessInput").disabled = true;
             } else if (attempts === 0) {
-                document.getElementById("feedback").textContent = "You're out of attempts. The word was: " + targetWord;
-                document.getElementById("attempts").textContent = "Game Over!";
+                document.getElementById("feedback").textContent = "Bye Bye, you should've guessed " + targetWord;
+                document.getElementById("attempts").textContent = "You lost";
                 document.getElementById("guessInput").disabled = true;
             } else {
                 document.getElementById("feedback").textContent = feedback;
